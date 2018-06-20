@@ -1,12 +1,12 @@
 {
-  "name": "vue-lazy-bg-sizes",
+  "name": "vue-lazy-background-sizes",
   "main": "./dist/lazy-background-image.common.js",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
 	"build": "vue-cli-service build",
-	"build-bundle": "vue-cli-service build --target lib --name lazy-background-image src/components/LazyBackgroundImage.vue",
+	"build-bundle": "vue-cli-service build --target lib --name lazy-background-sizes src/components/LazyBackgroundSizes.vue",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {

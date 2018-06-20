@@ -1,8 +1,9 @@
 <template>
-	<div :class="[imageClass, imageState]"
+	<div
+		:class="[imageClass, imageState]"
 		:style="computedStyle"
 		:data-state="imageState">
-		<slot></slot>
+		<slot />
 	</div>
 </template>
 
@@ -31,18 +32,18 @@ export default {
 		imageErrorCallback: {
 			type: Function,
 			required: false,
-			default: function() {}
+			default: function() {},
 		},
 		imageSuccessCallback: {
 			type: Function,
 			required: false,
-			default: function() {}
+			default: function() {},
 		},
 		backgroundSize: {
 			type: String,
 			required: false,
 			default: 'cover',
-		}
+		},
 	},
 	data() {
 		return {
@@ -50,20 +51,20 @@ export default {
 			asyncImage: new Image(),
 			screens: ['576', '992'],
 			imageState: 'lazy-bg--before-load',
-		}
+		};
 	},
 	computed: {
 		computedStyle() {
 			if (this.imageState === 'lazy-bg--loading' && this.loadingImage) {
-				return `background-image: url('${this.loadingImage}');`
+				return `background-image: url('${this.loadingImage}');`;
 			}
 
 			if (this.imageState === 'lazy-bg--error' && this.errorImage) {
-				return `background-image: url('${this.errorImage}');`
+				return `background-image: url('${this.errorImage}');`;
 			}
 
 			if (this.imageState === 'lazy-bg--loaded') {
-				return `background-image: url('${this.asyncImage.src}'); background-size: ${this.backgroundSize};`
+				return `background-image: url('${this.asyncImage.src}'); background-size: ${this.backgroundSize};`;
 			}
 
 			return '';
@@ -97,7 +98,7 @@ export default {
 			this.asyncImage.src = newImage;
 		},
 		imageOnLoad(success) {
-			this.imageState  = 'lazy-bg--loaded';
+			this.imageState = 'lazy-bg--loaded';
 			this.imageSuccessCallback();
 		},
 		imageOnError(error) {
@@ -125,6 +126,6 @@ export default {
 		this.debounceFetchImage = debounce(() => {
 			this.fetchImage();
 		}, 250);
-	}
-}
+	},
+};
 </script>

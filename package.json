@@ -1,7 +1,7 @@
 {
   "name": "vue-lazy-background-sizes",
   "main": "./dist/lazy-background-sizes.common.js",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",

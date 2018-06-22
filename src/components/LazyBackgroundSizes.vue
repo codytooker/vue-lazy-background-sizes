@@ -116,11 +116,14 @@ export default {
 				window.addEventListener('resize', this.debounceFetchImage);
 			}
 
+			window.addEventListener('scroll', this.debounceFetchImage);
+
 			this.fetchImage();
 		});
 	},
 	beforeDestroy() {
 		window.removeEventListener('resize', this.debounceFetchImage);
+		window.removeEventListener('scroll', this.debounceFetchImage);
 	},
 	created() {
 		this.debounceFetchImage = debounce(() => {
